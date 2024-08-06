@@ -1,0 +1,10 @@
+{
+	"exec": "tsx src/index.ts",
+	"watch": ["src", "package.json", "nodemon.json", ".env"],
+	"ext": "ts,json,env",
+	"ignore": [".git", "node_modules/**/node_modules"],
+	"quiet": true,
+	"events": {
+		"restart": "clear && echo 'App restarted due to changes'"
+	}
+}
