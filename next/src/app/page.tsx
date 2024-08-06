@@ -2,114 +2,75 @@ import Image from 'next/image';
 
 export default function Home() {
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-between p-24">
-			<div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-				<p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-					Get started by editing&nbsp;
-					<code className="font-mono font-bold">src/app/page.tsx</code>
-				</p>
-				<div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-					<a
-						className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-						href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						By{' '}
-						<Image
-							src="/vercel.svg"
-							alt="Vercel Logo"
-							className="dark:invert"
-							width={100}
-							height={24}
-							priority
-						/>
-					</a>
+		<div className="bg-white">
+			<div className="relative">
+				<div className="mx-auto max-w-7xl">
+					<div className="relative z-10 pt-14 lg:w-full lg:max-w-2xl">
+						<svg
+							viewBox="0 0 100 100"
+							preserveAspectRatio="none"
+							aria-hidden="true"
+							className="absolute inset-y-0 right-8 hidden h-full w-80 translate-x-1/2 transform fill-white lg:block"
+						>
+							<polygon points="0,0 90,0 50,100 0,100" />
+						</svg>
+
+						<div className="relative px-6 py-32 sm:py-40 lg:px-8 lg:pb-56 lg:pr-0">
+							<div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
+								<div className="hidden sm:mb-10 sm:flex">
+									<div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-500 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+										Put yourself on the map with an incredible song{' '}
+										{/* <a
+											href="#"
+											className="whitespace-nowrap font-semibold text-indigo-600"
+										>
+											<span
+												aria-hidden="true"
+												className="absolute inset-0"
+											/>
+											Read more{' '}
+											<span aria-hidden="true">&rarr;</span>
+										</a> */}
+									</div>
+								</div>
+								<h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+									Your next hit is just a click away
+								</h1>
+								<p className="mt-6 text-lg leading-8 text-gray-600">
+									Launching soon,{' '}
+									<span className="text-blue-600">songshop.io </span>
+									will bring you exclusive rights to premium pop bops
+									crafted by industry-leading writers and producers.
+									Skip the writing process and go straight to success.
+								</p>
+								<div className="mt-10 flex items-center gap-x-6">
+									<a
+										href="#"
+										className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+									>
+										Join the newsletter
+									</a>
+									{/* <a
+										href="#"
+										className="text-sm font-semibold leading-6 text-gray-900"
+									>
+										Learn more <span aria-hidden="true">→</span>
+									</a> */}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="bg-gray-50 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+					<Image
+						alt="Purchase the rights to an incredible pop song at songshop.io"
+						src="/concert.webp"
+						className="aspect-[3/2] object-cover lg:aspect-auto lg:h-full lg:w-full"
+						width={2688}
+						height={1920}
+					/>
 				</div>
 			</div>
-
-			<div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-				<Image
-					className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-					src="/next.svg"
-					alt="Next.js Logo"
-					width={180}
-					height={37}
-					priority
-				/>
-			</div>
-
-			<div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-				<a
-					href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-					className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<h2 className="mb-3 text-2xl font-semibold">
-						Docs{' '}
-						<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-							-&gt;
-						</span>
-					</h2>
-					<p className="m-0 max-w-[30ch] text-sm opacity-50">
-						Find in-depth information about Next.js features and API.
-					</p>
-				</a>
-
-				<a
-					href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-					className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<h2 className="mb-3 text-2xl font-semibold">
-						Learn{' '}
-						<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-							-&gt;
-						</span>
-					</h2>
-					<p className="m-0 max-w-[30ch] text-sm opacity-50">
-						Learn about Next.js in an interactive course
-						with&nbsp;quizzes!
-					</p>
-				</a>
-
-				<a
-					href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-					className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<h2 className="mb-3 text-2xl font-semibold">
-						Templates{' '}
-						<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-							-&gt;
-						</span>
-					</h2>
-					<p className="m-0 max-w-[30ch] text-sm opacity-50">
-						Explore starter templates for Next.js.
-					</p>
-				</a>
-
-				<a
-					href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-					className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<h2 className="mb-3 text-2xl font-semibold">
-						Deploy{' '}
-						<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-							-&gt;
-						</span>
-					</h2>
-					<p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-						Instantly deploy your Next.js site to a shareable URL with
-						Vercel.
-					</p>
-				</a>
-			</div>
-		</main>
+		</div>
 	);
 }
