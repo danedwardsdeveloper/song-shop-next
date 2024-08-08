@@ -1,9 +1,11 @@
+import Image from 'next/image';
+
 const content = {
 	heading: 'Find your next hit here',
 	tagline:
 		'SongShop is your source for professional pop song recording rights',
 	button: {
-		content: 'Browse the catalogue',
+		content: 'Browse songs',
 		target: '#',
 	},
 	image: {
@@ -42,10 +44,12 @@ export default function Hero() {
 				</div>
 			</div>
 			<div className="h-48 w-full sm:h-64 lg:absolute lg:right-0 lg:top-0 lg:h-full lg:w-1/3">
-				<img
+				<Image
 					src={content.image.src}
 					alt={content.image.alt}
 					className="h-full w-full object-cover object-center"
+					height={1920}
+					width={2688}
 				/>
 			</div>
 		</div>
