@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { WritersArray } from '../_types/types';
+import { WritersArray } from '../../_types/types';
 
 export default function Writers({ writers }: WritersArray) {
 	return (
