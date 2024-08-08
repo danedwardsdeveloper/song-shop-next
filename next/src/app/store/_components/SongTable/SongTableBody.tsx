@@ -3,9 +3,9 @@ import { EllipsisHorizontalIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import { formatDuration, formatPrice } from '../../../_utils/numberFormatting';
 
-import type { Song, SongTableProps } from '../../../../../types';
+import { Song, SongsArray } from '@/app/_types/types';
 
-export default function SongTableBody({ songs }: SongTableProps) {
+export default function SongTableBody({ songs }: SongsArray) {
 	const cellData = (song: Song) => [
 		{
 			content: <PlayIcon className="size-6" />,
