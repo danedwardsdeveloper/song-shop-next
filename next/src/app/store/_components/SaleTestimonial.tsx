@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Sale from './Sale';
 import Testimonials from './Testimonials';
 
@@ -7,10 +8,12 @@ export default function SaleTestimonials() {
 			{/* Decorative background image and gradient */}
 			<div aria-hidden="true" className="absolute inset-0">
 				<div className="absolute inset-0 mx-auto max-w-7xl overflow-hidden xl:px-8">
-					<img
+					<Image
 						alt=""
-						src="https://tailwindui.com/img/ecommerce-images/home-page-02-sale-full-width.jpg"
+						src="/sale.webp"
 						className="h-full w-full object-cover object-center"
+						height={1600}
+						width={2716}
 					/>
 				</div>
 				<div className="absolute inset-0 bg-white bg-opacity-75" />
