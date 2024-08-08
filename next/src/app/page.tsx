@@ -1,5 +1,13 @@
 import Image from 'next/image';
-// import Link from 'next/link';
+import Link from 'next/link';
+import { Metadata } from 'next';
+
+import { baseMetadata } from './_library/metadata';
+
+export const metadata: Metadata = {
+	...baseMetadata,
+	title: `Coming soon | Song Shop - Buy Pop Song Rights | Alternative to Hiring Songwriters`,
+};
 
 export default function Home() {
 	return (
@@ -21,17 +29,17 @@ export default function Home() {
 								<div className="hidden sm:mb-10 sm:flex">
 									<div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-500 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
 										Put yourself on the map with an incredible song{' '}
-										{/* <a
-											href="#"
+										{/* <Link
+											href="/newsletter"
 											className="whitespace-nowrap font-semibold text-indigo-600"
 										>
 											<span
 												aria-hidden="true"
 												className="absolute inset-0"
 											/>
-											Read more{' '}
+											Join the newsletter{' '}
 											<span aria-hidden="true">&rarr;</span>
-										</a> */}
+										</Link> */}
 									</div>
 								</div>
 								<h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
@@ -45,18 +53,18 @@ export default function Home() {
 									Skip the writing process and go straight to success.
 								</p>
 								<div className="mt-10 flex items-center gap-x-6">
-									{/* <Link
+									<Link
 										href="newsletter"
 										className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
 									>
 										Join the newsletter
-									</Link> */}
-									{/* <a
-										href="#"
+									</Link>
+									{/* <Link
+										href="/store"
 										className="text-sm font-semibold leading-6 text-gray-900"
 									>
-										Learn more <span aria-hidden="true">→</span>
-									</a> */}
+										Sneak peak <span aria-hidden="true">→</span>
+									</Link> */}
 								</div>
 							</div>
 						</div>
@@ -69,6 +77,7 @@ export default function Home() {
 						className="aspect-[3/2] object-cover lg:aspect-auto lg:h-full lg:w-full"
 						width={2688}
 						height={1920}
+						priority
 					/>
 				</div>
 			</div>
