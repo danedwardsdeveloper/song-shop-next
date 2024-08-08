@@ -2,16 +2,12 @@ import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.tailwind.css';
 
+import { baseMetadata } from './_library/metadata';
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-	title: 'Home | Song Shop',
-	description: 'Your source for professional pop song recording rights.',
-};
-
-export const viewport: Viewport = {
-	initialScale: 1,
-	width: 'device-width',
+	...baseMetadata,
 };
 
 export default function RootLayout({
