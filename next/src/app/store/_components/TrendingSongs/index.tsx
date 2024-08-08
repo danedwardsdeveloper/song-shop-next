@@ -1,4 +1,4 @@
-import { SongsArray } from '../../_types/types';
+import { SongsArray } from '../../../_types/types';
 import TrendingSong from './TrendingSong';
 
 const linkContent = {
