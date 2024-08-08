@@ -1,4 +1,4 @@
-import type { SongsArray } from '../../_types/types';
+import type { SongsArray } from '../../../_types/types';
 
 import SongTableHeader from './SongTableHeader';
 import SongTableBody from './SongTableBody';
