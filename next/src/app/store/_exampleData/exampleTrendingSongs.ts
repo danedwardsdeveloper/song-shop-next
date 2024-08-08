@@ -1,4 +1,4 @@
-import { Song } from '../_types/types';
+import { Song } from '../../_types/types';
 
 export const exampleTrendingSongs: Song[] = [
 	{
