@@ -1,6 +1,8 @@
 'use client';
-
 import { useState, ReactNode } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
 import {
 	Dialog,
 	DialogBackdrop,
@@ -9,12 +11,8 @@ import {
 } from '@headlessui/react';
 import {
 	Bars3Icon,
-	CalendarIcon,
 	MusicalNoteIcon,
-	ChartPieIcon,
 	Cog6ToothIcon,
-	DocumentDuplicateIcon,
-	FolderIcon,
 	HomeIcon,
 	UsersIcon,
 	XMarkIcon,
@@ -22,32 +20,7 @@ import {
 } from '@heroicons/react/24/outline';
 
 import { removeUnusedStyles } from '../../_utils/tailwindUtils';
-
-const navigation = [
-	{ name: 'Home', href: '#', icon: HomeIcon, current: true },
-	{ name: 'Songs', href: '#', icon: MusicalNoteIcon, current: false },
-	{ name: 'Writers', href: '#', icon: UsersIcon, current: false },
-	{
-		name: 'How it works',
-		href: '#',
-		icon: InformationCircleIcon,
-		current: false,
-	},
-];
-const teams = [
-	{ id: 1, name: 'Heroicons', href: '#', initial: 'H', current: false },
-	{ id: 2, name: 'Tailwind Labs', href: '#', initial: 'T', current: false },
-	{ id: 3, name: 'Work', href: '#', initial: 'W', current: false },
-];
-const userNavigation = [
-	{ name: 'Your profile', href: '#' },
-	{ name: 'Sign out', href: '#' },
-];
-
-const companyLogo = {
-	src: `/musicNote.svg`,
-	alt: `Song Shop | songshop.io`,
-};
+import CompanyLogo from './CompanyLogo';
 
 interface LayoutProps {
 	children: ReactNode;
@@ -55,6 +28,36 @@ interface LayoutProps {
 
 export default function StoreFront({ children }: LayoutProps) {
 	const [sidebarOpen, setSidebarOpen] = useState(false);
+	const pathname = usePathname();
+
+	const [navigation, setNavigation] = useState([
+		{ name: 'Home', href: '/store', icon: HomeIcon },
+		{
+			name: 'Songs',
+			href: '/store/songs',
+			icon: MusicalNoteIcon,
+		},
+		{
+			name: 'Writers',
+			href: '#',
+			icon: UsersIcon,
+		},
+		{
+			name: 'How it works',
+			href: '/store/how-it-works',
+			icon: InformationCircleIcon,
+		},
+	]);
+
+	const teams = [
+		{ id: 1, name: 'Heroicons', href: '#', initial: 'H' },
+		{ id: 2, name: 'Tailwind Labs', href: '#', initial: 'T' },
+		{ id: 3, name: 'Work', href: '#', initial: 'W' },
+	];
+	const userNavigation = [
+		{ name: 'Your profile', href: '#' },
+		{ name: 'Sign out', href: '#' },
+	];
 
 	return (
 		<div>
@@ -91,11 +94,7 @@ export default function StoreFront({ children }: LayoutProps) {
 						{/* Sidebar component*/}
 						<div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4 ring-1 ring-white/10">
 							<div className="flex h-16 shrink-0 items-center">
-								<img
-									alt={companyLogo.alt}
-									src={companyLogo.src}
-									className="h-8 w-auto"
-								/>
+								<CompanyLogo target="/store" />
 							</div>
 							<nav className="flex flex-1 flex-col">
 								<ul
@@ -106,10 +105,10 @@ export default function StoreFront({ children }: LayoutProps) {
 										<ul role="list" className="-mx-2 space-y-1">
 											{navigation.map((item) => (
 												<li key={item.name}>
-													<a
+													<Link
 														href={item.href}
 														className={removeUnusedStyles(
-															item.current
+															pathname === item.href
 																? 'bg-gray-800 text-white'
 																: 'text-gray-400 hover:bg-gray-800 hover:text-white',
 															'group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6'
@@ -120,7 +119,7 @@ export default function StoreFront({ children }: LayoutProps) {
 															className="h-6 w-6 shrink-0"
 														/>
 														{item.name}
-													</a>
+													</Link>
 												</li>
 											))}
 										</ul>
@@ -132,10 +131,10 @@ export default function StoreFront({ children }: LayoutProps) {
 										<ul role="list" className="-mx-2 mt-2 space-y-1">
 											{teams.map((team) => (
 												<li key={team.name}>
-													<a
+													<Link
 														href={team.href}
 														className={removeUnusedStyles(
-															team.current
+															pathname === team.href
 																? 'bg-gray-800 text-white'
 																: 'text-gray-400 hover:bg-gray-800 hover:text-white',
 															'group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6'
@@ -147,7 +146,7 @@ export default function StoreFront({ children }: LayoutProps) {
 														<span className="truncate">
 															{team.name}
 														</span>
-													</a>
+													</Link>
 												</li>
 											))}
 										</ul>
@@ -173,14 +172,10 @@ export default function StoreFront({ children }: LayoutProps) {
 
 			{/* Static sidebar for desktop */}
 			<div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
-				{/* Sidebar component, swap this element with another sidebar if you like */}
+				{/* Sidebar component*/}
 				<div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4">
 					<div className="flex h-16 shrink-0 items-center">
-						<img
-							alt={companyLogo.alt}
-							src={companyLogo.src}
-							className="h-8 w-auto"
-						/>
+						<CompanyLogo target="/store" />
 					</div>
 					<nav className="flex flex-1 flex-col">
 						<ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -188,10 +183,10 @@ export default function StoreFront({ children }: LayoutProps) {
 								<ul role="list" className="-mx-2 space-y-1">
 									{navigation.map((item) => (
 										<li key={item.name}>
-											<a
+											<Link
 												href={item.href}
 												className={removeUnusedStyles(
-													item.current
+													pathname === item.href
 														? 'bg-gray-800 text-white'
 														: 'text-gray-400 hover:bg-gray-800 hover:text-white',
 													'group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6'
@@ -202,7 +197,7 @@ export default function StoreFront({ children }: LayoutProps) {
 													className="h-6 w-6 shrink-0"
 												/>
 												{item.name}
-											</a>
+											</Link>
 										</li>
 									))}
 								</ul>
@@ -214,10 +209,10 @@ export default function StoreFront({ children }: LayoutProps) {
 								<ul role="list" className="-mx-2 mt-2 space-y-1">
 									{teams.map((team) => (
 										<li key={team.name}>
-											<a
+											<Link
 												href={team.href}
 												className={removeUnusedStyles(
-													team.current
+													pathname === team.href
 														? 'bg-gray-800 text-white'
 														: 'text-gray-400 hover:bg-gray-800 hover:text-white',
 													'group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6'
@@ -229,7 +224,7 @@ export default function StoreFront({ children }: LayoutProps) {
 												<span className="truncate">
 													{team.name}
 												</span>
-											</a>
+											</Link>
 										</li>
 									))}
 								</ul>
