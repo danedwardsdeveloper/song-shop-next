@@ -1,4 +1,4 @@
-import { Writer } from '../_types/types';
+import { Writer } from '../../_types/types';
 
 export const exampleWriters: Writer[] = [
 	{
