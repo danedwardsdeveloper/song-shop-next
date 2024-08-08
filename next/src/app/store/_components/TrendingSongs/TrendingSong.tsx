@@ -1,4 +1,5 @@
-import { Song } from '../../_types/types';
+import Image from 'next/image';
+import { Song } from '../../../_types/types';
 import { formatPrice } from '../../../_utils/numberFormatting';
 
 interface TrendingSongProps {
@@ -10,10 +11,12 @@ export default function TrendingProduct({ song }: TrendingSongProps) {
 		<li className="inline-flex w-64 flex-col text-center lg:w-auto">
 			<div className="group relative">
 				<div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200">
-					<img
+					<Image
 						alt={song.title}
 						src={song.imageUrl}
 						className="h-full w-full object-cover object-center group-hover:opacity-75"
+						height={640}
+						width={640}
 					/>
 				</div>
 				<div className="mt-6">
