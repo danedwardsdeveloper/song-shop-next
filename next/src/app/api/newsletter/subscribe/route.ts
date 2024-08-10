@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { mailchimpApiKey } from '@/app/environment';
+import { environment } from '@/app/environment';
 
 export async function POST(request: NextRequest) {
 	const url = `https://us21.api.mailchimp.com/3.0/lists/2faeb74482/members`;
@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
 		const response = await fetch(url, {
 			method: 'POST',
 			headers: {
-				Authorization: `Bearer ${mailchimpApiKey}`,
+				Authorization: `Bearer ${environment.MAILCHIMP_API_KEY}`,
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(subscriberData),
