@@ -48,9 +48,7 @@ export default function NewsletterForm() {
 					);
 					setMessageType('info');
 				} else {
-					setMessage(
-						`Failed to subscribe: ${responseText || 'Unknown error'}`
-					);
+					setMessage(`Sorry, something went wrong.`);
 					setMessageType('error');
 				}
 			}
