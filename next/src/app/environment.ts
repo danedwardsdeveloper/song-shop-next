@@ -1,12 +1,14 @@
-function setEnvironmentVariable(name: string) {
-	const value = process.env[name];
-	if (value === undefined || value === null) {
-		throw new Error(
-			`Environment variable "${name}" is missing or undefined.`
-		);
-	}
-	return value;
-}
+import { cleanEnv, makeValidator, str } from 'envalid';
 
-export const mailchimpApiKey = setEnvironmentVariable('MAILCHIMP_API_KEY');
-export const allowedOriginString = setEnvironmentVariable('ALLOWED_ORIGINS');
+const nonEmptyStr = makeValidator((value) => {
+	if (value.trim() === '') throw new Error('Value cannot be an empty string');
+	return value;
+});
+
+export const environment = cleanEnv(process.env, {
+	NODE_ENV: str({ choices: ['development', 'production'] }),
+	MAILCHIMP_API_KEY: nonEmptyStr(),
+	ALLOWED_ORIGINS: nonEmptyStr(),
+});
+
+export const validateEnvironment = () => environment;
